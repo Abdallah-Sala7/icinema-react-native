@@ -1,10 +1,9 @@
 import { useRef } from 'react'
 import { Animated, FlatList, Image, Text, View } from 'react-native'
-import assets from '../assets/assets';
 import { COLORS, TextStyle } from '../constants'
 import Paginator from './Paginator';
 
-const Swiper = ({data, paginat, width, height, type}) => {
+const Swiper = ({data, paginat, width, height, type, icon}) => {
   const scrollX = useRef(new Animated.Value(0)).current;
 
   const handleScroll = (event) => {
@@ -100,7 +99,7 @@ const Swiper = ({data, paginat, width, height, type}) => {
                   </Text>
 
                   <Image 
-                    source={assets.bookmark}
+                    source={icon}
                     style={{
                       width:20,
                       height:20,

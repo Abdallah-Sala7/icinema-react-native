@@ -1,23 +1,35 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setOpenSearch } from '../app/reducers/appSlice';
+
 import assets from '../assets/assets'
 import { COLORS } from '../constants'
+import SearchBar from './SearchBar'
+
 
 const Header = ({search}) => {
   const navigation = useNavigation();
   const route = useRoute();
+  const dispatch = useDispatch();
+
+  const {openSearch} = useSelector(state => state.app);
   return (
     <View 
       style={{
         position:"relative", 
         flexDirection:"row", 
-        justifyContent: search ? "justify-between" : "center",
-        width:"100%",
-        marginBottom:40
+        justifyContent: search ? "space-between" : "center",
+        alignItems:"center",
+        marginBottom:40,
+        height:50,
+        gap:10,
+        zIndex:1
       }}
     >
       {
-        !search && (
+        !search ? (
           <TouchableOpacity
             onPress={()=> navigation.goBack()}
             style={styles.back}
@@ -31,19 +43,63 @@ const Header = ({search}) => {
               }}
             />
           </TouchableOpacity>
+        ):
+          <TouchableOpacity
+            style={{
+              width:28,
+              height:28,
+              borderWidth:1,
+              borderColor:COLORS.primary,
+              borderRadius:30,
+              overflow:"hidden",
+            }}
+          >
+            <Image
+              source={assets.abdallah}
+              style={{
+                width:26,
+                height:26,
+                resizeMode:"center",
+                borderRadius:30
+              }}
+            />
+          </TouchableOpacity>
+      }
+
+      {
+        openSearch ? ( 
+          <SearchBar />
+        ) :(
+        <Text
+          style={{
+            color:COLORS.primary,
+            fontSize:20,
+            fontWeight:"bold",
+            textTransform:"capitalize"
+          }}
+        >
+          {search ? "ICinema" : route.name}
+        </Text>
         )
       }
 
-      <Text
-        style={{
-          color:COLORS.primary,
-          fontSize:20,
-          fontWeight:"bold",
-          textTransform:"capitalize"
-        }}
-      >
-        {route.name}
-      </Text>
+      {
+        search && (
+          <TouchableOpacity
+            onPress={()=> dispatch(setOpenSearch(true))}
+          >
+            <Image
+              source={assets.search}
+              style={{
+                width:24,
+                height:24,
+                resizeMode:"contain"
+              }}
+            />
+          </TouchableOpacity>
+        )
+      }
+
     </View>
   )
 }
@@ -55,7 +111,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent:"center",
     position:"absolute",
-    top:0,
+    top:13,
     left:0,
     width:24,
     height:24,

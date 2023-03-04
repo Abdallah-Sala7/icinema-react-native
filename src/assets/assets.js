@@ -11,9 +11,10 @@ import Rectangle1 from './images/cinema/Rectangle-1.png'
 import Rectangle2 from './images/cinema/Rectangle-2.png'
 import Rectangle3 from './images/cinema/Rectangle-3.png'
 
+import abdallah from './images/abdallah.jpg'
+
 
 // import icons 
-
 
 import back from './icons/back.png'
 import homeDark from './icons/home_dark.png'
@@ -27,6 +28,8 @@ import menuDark from './icons/menu_dark.png'
 import movieDark from './icons/movie_dark.png'
 import notificationsDark from './icons/notifications_dark.png'
 import bookmark from './icons/bookmark.png'
+import follow from './icons/follow.png'
+import search from './icons/search.png'
 
 
 
@@ -54,5 +57,8 @@ export default {
   Rectangle,
   Rectangle1,
   Rectangle2,
-  Rectangle3
+  Rectangle3,
+  follow,
+  search,
+  abdallah
 }

@@ -1,19 +1,20 @@
 import {ScrollView, Text, useWindowDimensions, View} from 'react-native';
 import {Header, RectButton, Swiper} from '../components';
 import {COLORS, CONTAINER, ceinmaData, TextStyle, ceinmas} from '../constants';
+import assets from '../assets/assets';
 
 const HomeScreen = () => {
   const {width} = useWindowDimensions;
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{...CONTAINER, paddingBottom: 90}}>
-        <Header />
+        <Header search />
 
         <Swiper
           data={ceinmaData}
           paginat={true}
-          width={240}
-          height={280}
+          width={280}
+          height={290}
           type={'ceinma'}
         />
 
@@ -23,7 +24,7 @@ const HomeScreen = () => {
           width={200}
           alignSelf="center"
           mb={20}>
-          View
+          View All
         </RectButton>
 
         <View>
@@ -37,6 +38,7 @@ const HomeScreen = () => {
             width={width}
             height={230}
             type={'movie'}
+            icon={assets.bookmark}
           />
         </View>
 
@@ -51,12 +53,13 @@ const HomeScreen = () => {
             width={width}
             height={180}
             type={'movie'}
+            icon={assets.follow}
           />
         </View>
 
         <View>
           <Text style={{...TextStyle, textAlign: 'left', marginBottom: 20}}>
-            Ceinmas
+            Showing Now
           </Text>
 
           <Swiper
@@ -65,6 +68,7 @@ const HomeScreen = () => {
             width={width}
             height={230}
             type={'movie'}
+            icon={assets.bookmark}
           />
         </View>
       </View>
