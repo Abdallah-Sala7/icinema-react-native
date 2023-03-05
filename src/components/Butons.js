@@ -66,3 +66,29 @@ export const InterestBtn = ({children}) => {
     </TouchableOpacity>
   );
 };
+
+export const DetailsBtn = ({children}) => {
+  return (
+    <TouchableOpacity
+      activeOpacity={0.8}
+      style={{
+        backgroundColor: COLORS.dark ,
+        borderRadius: 16,
+        paddingVertical:7,
+        paddingHorizontal:10,
+
+      }}
+    >
+      <Text
+        style={{
+          fontSize: SIZES.font,
+          color: COLORS.white,
+          textAlign: "center",
+          textTransform:"capitalize"
+        }}
+      >
+        {children}
+      </Text>
+    </TouchableOpacity>
+  );
+};

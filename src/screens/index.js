@@ -8,6 +8,7 @@ import MainLayout from "./MainLayout";
 import PaymentMethod from "./PaymentMethod";
 import TimeLine from "./TimeLine";
 import ShowingNow from "./ShowingNow";
+import CinemaDetail from "./CinemaDetail";
 
 
 export {
@@ -20,5 +21,6 @@ export {
   MainLayout,
   PaymentMethod,
   ShowingNow,
-  TimeLine
+  TimeLine,
+  CinemaDetail
 }

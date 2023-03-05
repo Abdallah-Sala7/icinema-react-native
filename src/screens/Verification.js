@@ -1,12 +1,13 @@
 import {useNavigation} from '@react-navigation/native';
 import {Text, View} from 'react-native';
 import {RectButton} from '../components/Butons';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {OTP, Header} from '../components';
 import {ButContainer, COLORS, CONTAINER, TextStyle} from '../constants';
 import {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { setOtp } from '../app/reducers/otpSilce';
 
 const Verification = ({
   route: {
@@ -16,6 +17,7 @@ const Verification = ({
   const {navigate} = useNavigation();
   const {otpCode} = useSelector(state => state.otp);
   const [errorOtp, setErrorOtp] = useState(false);
+  const dispatch = useDispatch();
 
   const checkOtp = () => {
     let otp = Object.values(otpCode).join('');
@@ -23,6 +25,11 @@ const Verification = ({
       navigate('interests');
       setErrorOtp(false);
       AsyncStorage.setItem('token','abdallah')
+      dispatch(setOtp({key:1, value:''}));
+      dispatch(setOtp({key:2, value:''}));
+      dispatch(setOtp({key:3, value:''}));
+      dispatch(setOtp({key:4, value:''}));
+      
     } else setErrorOtp(true);
   };
 

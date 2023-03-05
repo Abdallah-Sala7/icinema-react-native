@@ -1,9 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useEffect, useState} from 'react';
 import {I18nManager, StatusBar} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { useSelector } from 'react-redux';
 import {COLORS} from './src/constants';
 
 import {
@@ -13,21 +13,19 @@ import {
   RegisterScreen,
   SplashScreen,
   Verification,
+  CinemaDetail
 } from './src/screens';
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(false);
   const Stack = createNativeStackNavigator();
+
+  const {isLogin} = useSelector((state) => state.login);
 
   try {
     I18nManager.allowRTL(false);
   } catch (e) {
     console.log(e);
   }
-
-  useEffect(() => {
-    AsyncStorage.getItem('token').then(val => setIsLogin(true));
-  }, []);
 
   return (
     <>
@@ -44,7 +42,8 @@ const App = () => {
             screenOptions={{
               headerShown: false,
             }}>
-            {!isLogin && (
+
+          { !isLogin && (
               <>
                 <Stack.Screen name="splash" component={SplashScreen} />
 
@@ -56,8 +55,12 @@ const App = () => {
 
                 <Stack.Screen name="interests" component={Interests} />
               </>
-            )}
+            )
+          }
+            
             <Stack.Screen name="main" component={MainLayout} />
+            <Stack.Screen name="CinemaDetail" component={CinemaDetail} />
+          
           </Stack.Navigator>
         </SafeAreaProvider>
       </NavigationContainer>

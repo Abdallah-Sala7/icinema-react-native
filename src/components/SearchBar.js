@@ -1,4 +1,5 @@
 import {
+  Image,
   StyleSheet,
   Text,
   TextInput,
@@ -6,13 +7,15 @@ import {
   View,
 } from 'react-native';
 import {useEffect, useState} from 'react';
-import {ceinmaData, ceinmas, COLORS} from '../constants';
+import {ceinmaData, ceinmas, COLORS, TextStyle} from '../constants';
 
 import {setOpenSearch} from '../app/reducers/appSlice';
 import {useDispatch} from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
+  const {navigate} = useNavigation();
 
   const [searchText, setSearchText] = useState('');
   const [data, setData] = useState([]);
@@ -38,14 +41,47 @@ const SearchBar = () => {
           borderBottomRightRadius: searchText.length >= 1 ? 0 : 13,
         }}
         onChangeText={text => setSearchText(text)}
+        ref={input => input && input.focus()}
       />
 
       {searchText.length >= 1 && (
         <View style={styles.searchList}>
           {
             data.length >= 1 ? 
-              data.map(item => (
-                <Text key={item.id}>{item.name}</Text>
+              data.map((item, i) => (
+                <TouchableOpacity 
+                  key={i}
+                  style={{
+                    ...styles.searchItem, 
+                    borderTopWidth: i === 0 ? 0 : 1
+                  }}
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    dispatch(setOpenSearch(false));
+                    navigate('CinemaDetail', {item});
+                  }}
+                >
+                  <Image
+                    source={item.image}
+                    style={styles.image}
+                  />
+
+                  <View>
+                    <Text style={TextStyle}>
+                      {item.name}
+                    </Text>
+
+                    <Text 
+                      style={{
+                        ...TextStyle, 
+                        fontSize:12, 
+                        textAlign:"left"
+                      }}
+                    >
+                      {item.address}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
               ))
              : <Text>No movie found</Text>
           }
@@ -106,7 +142,6 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     backgroundColor: COLORS.gray,
-    maxHeight: 300,
     padding:30,
     borderBottomLeftRadius: 13,
     borderBottomRightRadius: 13,
@@ -114,4 +149,18 @@ const styles = StyleSheet.create({
     borderColor: COLORS.dark,
     overflow: 'scroll',
   },
+
+  image: {
+    width: 50, 
+    height: 50, 
+    borderRadius: 50, 
+    marginRight: 10, 
+    resizeMode: 'cover'
+  },
+  searchItem:{
+    flexDirection: 'row', 
+    alignItems: 'center',
+    borderColor: COLORS.dark,
+    paddingVertical: 15,
+  }
 });

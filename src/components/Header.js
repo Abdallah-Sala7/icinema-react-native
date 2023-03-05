@@ -1,8 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setOpenSearch } from '../app/reducers/appSlice';
+import { setLogin } from '../app/reducers/loginSlice';
 
 import assets from '../assets/assets'
 import { COLORS } from '../constants'
@@ -15,6 +17,13 @@ const Header = ({search}) => {
   const dispatch = useDispatch();
 
   const {openSearch} = useSelector(state => state.app);
+
+  async function handleLogout(){
+    await AsyncStorage.removeItem("token");
+    dispatch(setLogin(false));
+    navigation.navigate("splash");
+  }
+
   return (
     <View 
       style={{
@@ -53,6 +62,7 @@ const Header = ({search}) => {
               borderRadius:30,
               overflow:"hidden",
             }}
+            onPress={handleLogout}
           >
             <Image
               source={assets.abdallah}

@@ -30,10 +30,7 @@ import notificationsDark from './icons/notifications_dark.png'
 import bookmark from './icons/bookmark.png'
 import follow from './icons/follow.png'
 import search from './icons/search.png'
-
-
-
-
+import star from './icons/star.png'
 
 export default {
   movieLightReg,
@@ -60,5 +57,6 @@ export default {
   Rectangle3,
   follow,
   search,
-  abdallah
+  abdallah,
+  star
 }
