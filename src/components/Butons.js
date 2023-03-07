@@ -10,7 +10,7 @@ export const RectButton = ({children, BGcolor, color=COLORS.dark, handlePress, m
       style={{
         backgroundColor: BGcolor,
         borderRadius: SIZES.radius,
-        minWidth: 200,
+        width: 200,
         height:40,
         marginBottom:mb,
         justifyContent:"center",

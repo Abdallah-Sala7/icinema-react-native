@@ -1,8 +1,7 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isLogin: AsyncStorage.getItem("token") ? true : false,
+  isLogin: false,
   token: '',
   user: {},
 };

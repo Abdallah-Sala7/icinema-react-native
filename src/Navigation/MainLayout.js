@@ -4,9 +4,7 @@ import assets from '../assets/assets';
 import {CustomTabBarButton} from '../components';
 import {COLORS} from '../constants';
 
-import HomeScreen from './HomeScreen';
-import ShowingNow from './ShowingNow';
-import TimeLine from './TimeLine';
+import {HomeScreen, ShowingNow, TimeLine} from '../screens';
 
 const MainLayout = () => {
   const Tab = createBottomTabNavigator();

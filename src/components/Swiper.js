@@ -1,9 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import { useRef } from 'react'
-import { Animated, FlatList, Image, Text, View } from 'react-native'
+import { Animated, FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
 import { COLORS, TextStyle } from '../constants'
 import Paginator from './Paginator';
 
 const Swiper = ({data, paginat, width, height, type, icon}) => {
+  const {navigate} = useNavigation();
   const scrollX = useRef(new Animated.Value(0)).current;
 
   const handleScroll = (event) => {
@@ -45,7 +47,9 @@ const Swiper = ({data, paginat, width, height, type, icon}) => {
           gap:10
         }}        
         renderItem={({item}) => (
-          <View
+          <TouchableOpacity
+            activeOpacity={.8}
+            onPress={() => navigate('details',{item})}
             style={{
               width:type === 'ceinma' ? width : 144,
               height,
@@ -111,7 +115,7 @@ const Swiper = ({data, paginat, width, height, type, icon}) => {
                 )
               }
             </View>
-          </View>
+          </TouchableOpacity>
         )
         }
       />  

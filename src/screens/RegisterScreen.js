@@ -1,64 +1,67 @@
-import { Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { useState } from 'react'
-import {CountryPicker} from "react-native-country-codes-picker";
-import Header from '../components/Header'
-import { COLORS, CONTAINER, SIZES, TextStyle, InputStyle, ButContainer } from '../constants'
-import { RectButton } from '../components/Butons';
-import { useNavigation } from '@react-navigation/native';
+import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {useState} from 'react';
+import {CountryPicker} from 'react-native-country-codes-picker';
+import Header from '../components/Header';
+import {
+  COLORS,
+  SIZES,
+  TextStyle,
+  InputStyle,
+  ButContainer,
+  SplashContainer,
+} from '../constants';
+import {RectButton} from '../components/Butons';
+import {useNavigation} from '@react-navigation/native';
 
 const RegisterScreen = () => {
-  const {navigate} = useNavigation()
+  const {navigate} = useNavigation();
   const [show, setShow] = useState(false);
 
   const [countryName, setCountryName] = useState('Egypt');
   const [countryCode, setCountryCode] = useState('+20');
   const [countryFlag, setCountryFlag] = useState('🇪🇬');
 
-  const [phoneNumber, setPhoneNumber] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   return (
-    <View style={CONTAINER}>
+    <View style={SplashContainer}>
       <Header />
 
-      <Text 
+      <Text
         style={{
-          ...TextStyle
-        }}
-      >
+          ...TextStyle,
+        }}>
         Enter your country code and your phone number
       </Text>
 
-      <View style={{width:"100%", paddingVertical:70}}>
-        <View style={{width:"100%", marginBottom:30}}>
+      <View style={{width: '100%', paddingVertical: 70}}>
+        <View style={{width: '100%', marginBottom: 30}}>
           <TouchableOpacity
             onPress={() => setShow(true)}
-            style={{...InputStyle, justifyContent:"center", paddingEnd:10}}
-          >
-            <View 
+            style={{...InputStyle, justifyContent: 'center', paddingEnd: 10}}>
+            <View
               style={{
-                flexDirection:"row", 
-                justifyContent:"space-between"
-              }}
-            >
-              <Text style={{
-                color: 'white',
-                fontSize: SIZES.font,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
               }}>
-                  {countryName}
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: SIZES.font,
+                }}>
+                {countryName}
               </Text>
 
-              <Text>
-                {countryFlag}
-              </Text>
+              <Text>{countryFlag}</Text>
             </View>
           </TouchableOpacity>
 
           <CountryPicker
             show={show}
-            pickerButtonOnPress={(item) => {
+            pickerButtonOnPress={item => {
               setCountryCode(item.dial_code);
-              setCountryName(item.name['en'])
-              setCountryFlag(item.flag)
+              setCountryName(item.name['en']);
+              setCountryFlag(item.flag);
               setShow(false);
             }}
             excludedCountries={['IL']}
@@ -69,55 +72,53 @@ const RegisterScreen = () => {
                 backgroundColor: COLORS.gray,
               },
 
-              textInput:{
+              textInput: {
                 backgroundColor: COLORS.gray,
               },
 
               modal: {
-              height: 500,
-              backgroundColor: COLORS.dark
+                height: 500,
+                backgroundColor: COLORS.dark,
               },
 
               line: {
-                backgroundColor: COLORS.gray
+                backgroundColor: COLORS.gray,
               },
             }}
           />
         </View>
 
-        <View style={{flexDirection:"row", gap:10}}>
-          <Text 
+        <View style={{flexDirection: 'row', gap: 10}}>
+          <Text
             style={{
-              padding:10, 
-              backgroundColor:COLORS.gray, 
-              borderRadius:SIZES.radius,
-              verticalAlign:"middle"
-            }}
-          >
+              padding: 10,
+              backgroundColor: COLORS.gray,
+              borderRadius: SIZES.radius,
+              verticalAlign: 'middle',
+            }}>
             {countryCode}
           </Text>
 
-          <TextInput 
-            style={{...InputStyle, flex:1}} 
-            keyboardType={"phone-pad"}
+          <TextInput
+            style={{...InputStyle, flex: 1}}
+            keyboardType={'phone-pad'}
             placeholder="102 507 7437"
             caretHidden
-            onChangeText={(text)=> setPhoneNumber(text)}
+            onChangeText={text => setPhoneNumber(text)}
           />
         </View>
       </View>
 
       <View style={ButContainer}>
-        <RectButton 
+        <RectButton
           BGcolor={COLORS.primary}
           color={COLORS.white}
-          handlePress={()=> navigate('verification',{phoneNumber})}
-        >
+          handlePress={() => navigate('verification', {phoneNumber})}>
           get code
         </RectButton>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default RegisterScreen
+export default RegisterScreen;

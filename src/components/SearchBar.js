@@ -58,7 +58,7 @@ const SearchBar = () => {
                   activeOpacity={0.8}
                   onPress={() => {
                     dispatch(setOpenSearch(false));
-                    navigate('CinemaDetail', {item});
+                    navigate('details', {item});
                   }}
                 >
                   <Image
@@ -157,6 +157,7 @@ const styles = StyleSheet.create({
     marginRight: 10, 
     resizeMode: 'cover'
   },
+  
   searchItem:{
     flexDirection: 'row', 
     alignItems: 'center',

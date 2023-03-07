@@ -5,6 +5,7 @@ import {
   TextStyle,
   InputStyle,
   ButContainer,
+  SplashContainer,
 } from './theme';
 
 import {movieLagData, intrestData, ceinmaData, ceinmas} from './data';
@@ -19,5 +20,6 @@ export {
   intrestData,
   movieLagData,
   ceinmaData,
-  ceinmas
+  ceinmas,
+  SplashContainer,
 };

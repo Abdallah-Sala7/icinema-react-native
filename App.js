@@ -1,25 +1,30 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {useEffect} from 'react';
 import {I18nManager, StatusBar} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {setLogin} from './src/app/reducers/loginSlice';
 import {COLORS} from './src/constants';
 
-import {
-  Interests,
-  MainLayout,
-  NewUser,
-  RegisterScreen,
-  SplashScreen,
-  Verification,
-  CinemaDetail
-} from './src/screens';
+import {LoginNavigation, MainLayout} from './src/Navigation';
+
+import {BookScreen, CinemaDetail} from './src/screens';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
+  const dispatch = useDispatch();
 
-  const {isLogin} = useSelector((state) => state.login);
+  const {isLogin} = useSelector(state => state.login);
+
+  useEffect(() => {
+    AsyncStorage.getItem('token').then(token => {
+      if (token) {
+        dispatch(setLogin(true));
+      }
+    });
+  }, [isLogin]);
 
   try {
     I18nManager.allowRTL(false);
@@ -42,25 +47,19 @@ const App = () => {
             screenOptions={{
               headerShown: false,
             }}>
-
-          { !isLogin && (
+            {!isLogin ? (
+              <Stack.Screen
+                name="LoginNavigation"
+                component={LoginNavigation}
+              />
+            ) : (
               <>
-                <Stack.Screen name="splash" component={SplashScreen} />
+                <Stack.Screen name="main" component={MainLayout} />
+                <Stack.Screen name="details" component={CinemaDetail} />
+                <Stack.Screen name="BookScreen" component={BookScreen} />
 
-                <Stack.Screen name="register" component={RegisterScreen} />
-
-                <Stack.Screen name="new user" component={NewUser} />
-
-                <Stack.Screen name="verification" component={Verification} />
-
-                <Stack.Screen name="interests" component={Interests} />
               </>
-            )
-          }
-            
-            <Stack.Screen name="main" component={MainLayout} />
-            <Stack.Screen name="CinemaDetail" component={CinemaDetail} />
-          
+            )}
           </Stack.Navigator>
         </SafeAreaProvider>
       </NavigationContainer>

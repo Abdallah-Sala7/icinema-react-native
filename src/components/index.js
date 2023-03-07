@@ -3,6 +3,10 @@ import OTP from './OTP';
 import CustomTabBarButton from './CustomTabBarButton';
 import Paginator from './Paginator';
 import Swiper from './Swiper';
+import MultiStep from './MultiStep';
+import ChooseCinema from './ChooseCinema';
+import ChooseTime from './ChooseTime';
+import ChoosePayment from './ChoosePayment';
 
 import {RectButton, InterestBtn, DetailsBtn} from './Butons';
 
@@ -15,4 +19,8 @@ export {
   Paginator,
   Swiper,
   DetailsBtn,
+  MultiStep,
+  ChooseCinema,
+  ChooseTime,
+  ChoosePayment,
 };

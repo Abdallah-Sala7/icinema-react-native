@@ -7,8 +7,8 @@ const HomeScreen = () => {
   const {width} = useWindowDimensions;
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={{...CONTAINER, paddingBottom: 90}}>
-        <Header search />
+      <View style={CONTAINER}>
+        <Header search title />
 
         <Swiper
           data={ceinmaData}

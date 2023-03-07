@@ -4,11 +4,12 @@ import NewUser from "./NewUser";
 import RegisterScreen from "./RegisterScreen";
 import SplashScreen from "./SplashScreen";
 import Verification from "./Verification";
-import MainLayout from "./MainLayout";
 import PaymentMethod from "./PaymentMethod";
 import TimeLine from "./TimeLine";
 import ShowingNow from "./ShowingNow";
 import CinemaDetail from "./CinemaDetail";
+import BookScreen from "./BookScreen";
+
 
 
 export {
@@ -18,9 +19,9 @@ export {
   RegisterScreen,
   SplashScreen, 
   Verification,
-  MainLayout,
   PaymentMethod,
   ShowingNow,
   TimeLine,
-  CinemaDetail
+  CinemaDetail,
+  BookScreen
 }

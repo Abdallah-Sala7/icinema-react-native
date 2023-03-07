@@ -10,14 +10,22 @@ export const SIZES = {
   base: 10,
   font: 16,
   radius: 8,
-  padding: 30,
+  padding: 12,
   line:20
 }
 
 export const CONTAINER = {
   minHeight:"100%",
   paddingHorizontal:SIZES.padding,
-  paddingTop:SIZES.padding,
+  paddingTop:30,
+  paddingBottom:90,
+  backgroundColor:COLORS.dark,
+}
+
+export const SplashContainer = {
+  minHeight:"100%",
+  paddingHorizontal:35,
+  paddingTop:30,
   backgroundColor:COLORS.dark,
 }
 

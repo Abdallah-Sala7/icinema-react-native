@@ -4,10 +4,10 @@ import {RectButton} from '../components/Butons';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {OTP, Header} from '../components';
-import {ButContainer, COLORS, CONTAINER, TextStyle} from '../constants';
+import {ButContainer, COLORS, SplashContainer, TextStyle} from '../constants';
 import {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { setOtp } from '../app/reducers/otpSilce';
+import {setOtp} from '../app/reducers/otpSilce';
 
 const Verification = ({
   route: {
@@ -19,22 +19,22 @@ const Verification = ({
   const [errorOtp, setErrorOtp] = useState(false);
   const dispatch = useDispatch();
 
-  const checkOtp = () => {
+  async function checkOtp(){
     let otp = Object.values(otpCode).join('');
     if (otp === '1234') {
       navigate('interests');
       setErrorOtp(false);
-      AsyncStorage.setItem('token','abdallah')
-      dispatch(setOtp({key:1, value:''}));
-      dispatch(setOtp({key:2, value:''}));
-      dispatch(setOtp({key:3, value:''}));
-      dispatch(setOtp({key:4, value:''}));
       
+      await AsyncStorage.setItem('token', 'abdallah');
+      dispatch(setOtp({key: 1, value: ''}));
+      dispatch(setOtp({key: 2, value: ''}));
+      dispatch(setOtp({key: 3, value: ''}));
+      dispatch(setOtp({key: 4, value: ''}));
     } else setErrorOtp(true);
   };
 
   return (
-    <View style={CONTAINER}>
+    <View style={SplashContainer}>
       <Header />
 
       <View style={{marginTop: 50}}>
@@ -43,7 +43,7 @@ const Verification = ({
           <Text style={{color: COLORS.primary}}> {phoneNumber}</Text>
         </Text>
 
-        <OTP handleOtp={checkOtp} />
+        <OTP />
 
         {errorOtp && (
           <Text
