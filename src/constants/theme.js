@@ -15,6 +15,7 @@ export const SIZES = {
 }
 
 export const CONTAINER = {
+  flex: 1,
   minHeight:"100%",
   paddingHorizontal:SIZES.padding,
   paddingTop:30,

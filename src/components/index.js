@@ -7,6 +7,8 @@ import MultiStep from './MultiStep';
 import ChooseCinema from './ChooseCinema';
 import ChooseTime from './ChooseTime';
 import ChoosePayment from './ChoosePayment';
+import CinemaCard from './CinemaCard';
+
 
 import {RectButton, InterestBtn, DetailsBtn} from './Butons';
 
@@ -23,4 +25,5 @@ export {
   ChooseCinema,
   ChooseTime,
   ChoosePayment,
+  CinemaCard
 };

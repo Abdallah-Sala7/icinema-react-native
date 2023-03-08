@@ -11,7 +11,7 @@ import {ceinmaData, ceinmas, COLORS, TextStyle} from '../constants';
 
 import {setOpenSearch} from '../app/reducers/appSlice';
 import {useDispatch} from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -22,8 +22,8 @@ const SearchBar = () => {
 
   useEffect(() => {
     if (searchText.length >= 1) {
-      const itemsData = [...ceinmaData, ...ceinmas]
-      
+      const itemsData = [...ceinmaData, ...ceinmas];
+
       const filterData = itemsData.filter(item =>
         item.name.toLowerCase().includes(searchText.toLowerCase()),
       );
@@ -46,45 +46,38 @@ const SearchBar = () => {
 
       {searchText.length >= 1 && (
         <View style={styles.searchList}>
-          {
-            data.length >= 1 ? 
-              data.map((item, i) => (
-                <TouchableOpacity 
-                  key={i}
-                  style={{
-                    ...styles.searchItem, 
-                    borderTopWidth: i === 0 ? 0 : 1
-                  }}
-                  activeOpacity={0.8}
-                  onPress={() => {
-                    dispatch(setOpenSearch(false));
-                    navigate('details', {item});
-                  }}
-                >
-                  <Image
-                    source={item.image}
-                    style={styles.image}
-                  />
+          {data.length >= 1 ? (
+            data.map((item, i) => (
+              <TouchableOpacity
+                key={i}
+                style={{
+                  ...styles.searchItem,
+                  borderTopWidth: i === 0 ? 0 : 1,
+                }}
+                activeOpacity={0.8}
+                onPress={() => {
+                  dispatch(setOpenSearch(false));
+                  navigate('details', {item});
+                }}>
+                <Image source={item.image} style={styles.image} />
 
-                  <View>
-                    <Text style={TextStyle}>
-                      {item.name}
-                    </Text>
+                <View>
+                  <Text style={TextStyle}>{item.name}</Text>
 
-                    <Text 
-                      style={{
-                        ...TextStyle, 
-                        fontSize:12, 
-                        textAlign:"left"
-                      }}
-                    >
-                      {item.address}
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              ))
-             : <Text>No movie found</Text>
-          }
+                  <Text
+                    style={{
+                      ...TextStyle,
+                      fontSize: 12,
+                      textAlign: 'left',
+                    }}>
+                    {item.address}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            ))
+          ) : (
+            <Text>No movie found</Text>
+          )}
         </View>
       )}
 
@@ -142,7 +135,7 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     backgroundColor: COLORS.gray,
-    padding:30,
+    padding: 30,
     borderBottomLeftRadius: 13,
     borderBottomRightRadius: 13,
     borderTopWidth: 1,
@@ -151,17 +144,17 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 50, 
-    height: 50, 
-    borderRadius: 50, 
-    marginRight: 10, 
-    resizeMode: 'cover'
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    marginRight: 10,
+    resizeMode: 'cover',
   },
-  
-  searchItem:{
-    flexDirection: 'row', 
+
+  searchItem: {
+    flexDirection: 'row',
     alignItems: 'center',
     borderColor: COLORS.dark,
     paddingVertical: 15,
-  }
+  },
 });

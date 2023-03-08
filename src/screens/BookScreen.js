@@ -7,13 +7,13 @@ import {
   MultiStep,
   RectButton,
 } from '../components';
-import {COLORS, CONTAINER} from '../constants';
+import {ButContainer, COLORS, CONTAINER} from '../constants';
 
 const BookScreen = () => {
   const [step, setStep] = useState(0);
 
   const handleStep = () => {
-    step < 4 ? setStep(step + 1) : setStep(0);
+    step < 4 ? setStep(step + 1) : setStep(4);
   };
 
   return (
@@ -32,9 +32,14 @@ const BookScreen = () => {
         </View>
       )}
 
-      <RectButton handlePress={handleStep} BGcolor={COLORS.primary}>
-        <Text>Next</Text>
-      </RectButton>
+      <View style={ButContainer}>
+        <RectButton
+          BGcolor={COLORS.primary}
+          color={COLORS.white}
+          handlePress={handleStep}>
+          next
+        </RectButton>
+      </View>
     </View>
   );
 };

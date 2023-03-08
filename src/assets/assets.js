@@ -31,6 +31,9 @@ import bookmark from './icons/bookmark.png'
 import follow from './icons/follow.png'
 import search from './icons/search.png'
 import star from './icons/star.png'
+import filter from './icons/filter.png'
+import close from './icons/close.png'
+
 
 export default {
   movieLightReg,
@@ -58,5 +61,7 @@ export default {
   follow,
   search,
   abdallah,
-  star
+  star,
+  filter,
+  close
 }

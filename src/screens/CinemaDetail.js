@@ -12,7 +12,7 @@ const CinemaDetail = () => {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={CONTAINER}>
+      <View style={[CONTAINER,{paddingBottom:30}]}>
         <Header title />
 
         <View style={styles.movireCard}>
