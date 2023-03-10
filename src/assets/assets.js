@@ -6,6 +6,11 @@ import cinema2 from './images/cinema/cinema2.png'
 import cinema3 from './images/cinema/cinema3.png'
 import cinema4 from './images/cinema/cinema4.png'
 
+import hole1 from './images/hole1.png'
+import hole2 from './images/hole2.png'
+import hole3 from './images/hole3.png'
+
+
 import Rectangle from './images/cinema/Rectangle.png'
 import Rectangle1 from './images/cinema/Rectangle-1.png'
 import Rectangle2 from './images/cinema/Rectangle-2.png'
@@ -63,5 +68,8 @@ export default {
   abdallah,
   star,
   filter,
-  close
+  close,
+  hole1,
+  hole2,
+  hole3,
 }

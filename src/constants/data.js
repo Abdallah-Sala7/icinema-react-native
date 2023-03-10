@@ -1,4 +1,4 @@
-import assets from '../assets/assets'
+import assets from '../assets/assets';
 
 export const movieLagData = [
   'Japanese',
@@ -14,8 +14,8 @@ export const movieLagData = [
   'Russian',
   'Italian',
   'Greek',
-  'Indian'
-]
+  'Indian',
+];
 
 export const intrestData = [
   'Sport',
@@ -30,8 +30,8 @@ export const intrestData = [
   'Romance',
   'Family',
   'Horror',
-  'Science Fiction'
-]
+  'Science Fiction',
+];
 
 export const ceinmaData = [
   {
@@ -39,34 +39,34 @@ export const ceinmaData = [
     name: 'Cinema 1',
     address: 'Address 1',
     image: assets.cinema1,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
   },
   {
     id: 2,
     name: 'Cinema 2',
     address: 'Address 2',
     image: assets.cinema2,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
   },
   {
     id: 3,
     name: 'Cinema 3',
     address: 'Address 3',
     image: assets.cinema3,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
   },
   {
     id: 4,
     name: 'Cinema 4',
     address: 'Address 4',
     image: assets.cinema4,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
-  }
-]
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+  },
+];
 
 export const ceinmas = [
   {
@@ -74,63 +74,223 @@ export const ceinmas = [
     name: 'Cinema 1',
     address: 'Address 1',
     image: assets.Rectangle,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+    hole: [
+      {
+        name: 'hole 1',
+        column: 2,
+        image: assets.hole1,
+        capacity: 100,
+      },
+      {
+        name: 'hole 2',
+        column: 3,
+        image: assets.hole2,
+        capacity: 170,
+      },
+      {
+        name: 'hole 3',
+        column: 3,
+        image: assets.hole3,
+        capacity: 200,
+      },
+    ],
   },
   {
     id: 2,
     name: 'Cinema 2',
     address: 'Address 2',
     image: assets.Rectangle1,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+    hole: [
+      {
+        name: 'hole 1',
+        column: 2,
+        image: assets.hole1,
+        capacity: 100,
+      },
+      {
+        name: 'hole 2',
+        column: 3,
+        image: assets.hole2,
+        capacity: 170,
+      },
+      {
+        name: 'hole 3',
+        column: 3,
+        image: assets.hole3,
+        capacity: 200,
+      },
+    ],
   },
   {
     id: 3,
     name: 'Cinema 3',
     address: 'Address 3',
     image: assets.Rectangle2,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+    hole: [
+      {
+        name: 'hole 1',
+        column: 2,
+        image: assets.hole1,
+        capacity: 100,
+      },
+      {
+        name: 'hole 2',
+        column: 3,
+        image: assets.hole2,
+        capacity: 170,
+      },
+      {
+        name: 'hole 3',
+        column: 3,
+        image: assets.hole3,
+        capacity: 200,
+      },
+    ],
   },
   {
     id: 4,
     name: 'Cinema 4',
     address: 'Address 4',
     image: assets.Rectangle3,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+    hole: [
+      {
+        name: 'hole 1',
+        column: 2,
+        image: assets.hole1,
+        capacity: 100,
+      },
+      {
+        name: 'hole 2',
+        column: 3,
+        image: assets.hole2,
+        capacity: 170,
+      },
+      {
+        name: 'hole 3',
+        column: 3,
+        image: assets.hole3,
+        capacity: 200,
+      },
+    ],
   },
   {
     id: 5,
     name: 'Cinema 1',
     address: 'Address 1',
     image: assets.Rectangle,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+    hole: [
+      {
+        name: 'hole 1',
+        column: 2,
+        image: assets.hole1,
+        capacity: 100,
+      },
+      {
+        name: 'hole 2',
+        column: 3,
+        image: assets.hole2,
+        capacity: 170,
+      },
+      {
+        name: 'hole 3',
+        column: 3,
+        image: assets.hole3,
+        capacity: 200,
+      },
+    ],
   },
   {
     id: 6,
     name: 'Cinema 2',
     address: 'Address 2',
     image: assets.Rectangle1,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+    hole: [
+      {
+        name: 'hole 1',
+        column: 2,
+        image: assets.hole1,
+        capacity: 100,
+      },
+      {
+        name: 'hole 2',
+        column: 3,
+        image: assets.hole2,
+        capacity: 170,
+      },
+      {
+        name: 'hole 3',
+        column: 3,
+        image: assets.hole3,
+        capacity: 200,
+      },
+    ],
   },
   {
     id: 7,
     name: 'Cinema 3',
     address: 'Address 3',
     image: assets.Rectangle2,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+    hole: [
+      {
+        name: 'hole 1',
+        column: 2,
+        image: assets.hole1,
+        capacity: 100,
+      },
+      {
+        name: 'hole 2',
+        column: 3,
+        image: assets.hole2,
+        capacity: 170,
+      },
+      {
+        name: 'hole 3',
+        column: 3,
+        image: assets.hole3,
+        capacity: 200,
+      },
+    ],
   },
   {
     id: 8,
     name: 'Cinema 4',
     address: 'Address 4',
     image: assets.Rectangle3,
-    disc:"Galaxy cinema added 9D experience, try it to enjoy more",
-    location:"3D Theatres, Americana Plaza, Giza"
-  }
-]
+    disc: 'Galaxy cinema added 9D experience, try it to enjoy more',
+    location: '3D Theatres, Americana Plaza, Giza',
+    hole: [
+      {
+        name: 'hole 1',
+        column: 2,
+        image: assets.hole1,
+        capacity: 100,
+      },
+      {
+        name: 'hole 2',
+        column: 3,
+        image: assets.hole2,
+        capacity: 170,
+      },
+      {
+        name: 'hole 3',
+        column: 3,
+        image: assets.hole3,
+        capacity: 200,
+      },
+    ],
+  },
+];

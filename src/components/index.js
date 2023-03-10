@@ -8,9 +8,10 @@ import ChooseCinema from './ChooseCinema';
 import ChooseTime from './ChooseTime';
 import ChoosePayment from './ChoosePayment';
 import CinemaCard from './CinemaCard';
+import HoleChairs from './HoleChairs';
 
 
-import {RectButton, InterestBtn, DetailsBtn} from './Butons';
+import {RectButton, InterestBtn, DetailsBtn, ChooseBtn} from './Butons';
 
 export {
   Header,
@@ -25,5 +26,7 @@ export {
   ChooseCinema,
   ChooseTime,
   ChoosePayment,
-  CinemaCard
+  CinemaCard,
+  ChooseBtn,
+  HoleChairs
 };

@@ -8,28 +8,26 @@ const CinemaCard = ({item}) => {
   const dispatch = useDispatch()
   const {cinema} = useSelector(state => state.choose)
 
-  console.log(cinema);
-
   return (
     <TouchableOpacity 
-      style={[styles.card, {backgroundColor: cinema === item.id ? COLORS.white : COLORS.gray}]} 
+      style={[styles.card, {backgroundColor: cinema === item ? COLORS.white : COLORS.gray}]} 
       activeOpacity={0.8}
-      onPress={() => dispatch(setCinema(item.id))}
+      onPress={() => dispatch(setCinema(item))}
     >
       <Image source={item.image} style={styles.image} />
 
       <View style={{flex: 1}}>
-        <Text style={[styles.text,{color: cinema === item.id ? COLORS.dark : COLORS.white}]}>{item.name}</Text>
+        <Text style={[styles.text,{color: cinema === item ? COLORS.dark : COLORS.white}]}>{item.name}</Text>
 
-        <Text style={[styles.text,{color: cinema === item.id ? COLORS.dark : COLORS.white}]}>{item.location}</Text>
+        <Text style={[styles.text,{color: cinema === item ? COLORS.dark : COLORS.white}]}>{item.location}</Text>
 
-        <View style={[styles.rate, {backgroundColor: cinema === item.id ? COLORS.dark : COLORS.white}]}>
+        <View style={[styles.rate, {backgroundColor: cinema === item ? COLORS.dark : COLORS.white}]}>
           <Image
             source={assets.star}
             style={{width: 14, height: 14, marginRight: 2, resizeMode:"contain"}}
           />
 
-          <Text style={{color: cinema === item.id ? COLORS.white : COLORS.dark}}>3.5</Text>
+          <Text style={{color: cinema === item ? COLORS.white : COLORS.dark}}>3.5</Text>
         </View>
       </View>
     </TouchableOpacity>

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useState} from 'react';
 import {
   ChooseCinema,
@@ -20,26 +20,34 @@ const BookScreen = () => {
     <View style={CONTAINER}>
       <MultiStep step={step} />
 
-      {step === 0 ? (
-        <ChooseCinema />
-      ) : step === 1 ? (
-        <ChooseTime />
-      ) : step === 2 ? (
-        <ChoosePayment />
-      ) : (
-        <View>
-          <Text>Done</Text>
-        </View>
-      )}
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{
+          flex:1,
+          paddingBottom:30
+        }}
+      >
+        {step === 0 ? (
+          <ChooseCinema />
+        ) : step === 1 ? (
+          <ChooseTime />
+        ) : step === 2 ? (
+          <ChoosePayment />
+        ) : (
+          <View>
+            <Text>Done</Text>
+          </View>
+        )}
 
-      <View style={ButContainer}>
-        <RectButton
-          BGcolor={COLORS.primary}
-          color={COLORS.white}
-          handlePress={handleStep}>
-          next
-        </RectButton>
-      </View>
+        <View>
+          <RectButton
+            BGcolor={COLORS.primary}
+            color={COLORS.white}
+            handlePress={handleStep}>
+            next
+          </RectButton>
+        </View>
+      </ScrollView>
     </View>
   );
 };

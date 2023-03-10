@@ -92,3 +92,21 @@ export const DetailsBtn = ({children}) => {
     </TouchableOpacity>
   );
 };
+
+export const ChooseBtn = ({children, choosed, idx, handlePress}) => {
+  return (
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={handlePress}
+      style={
+        {
+          borderRadius: SIZES.radius,
+          paddingVertical: 5,
+          paddingHorizontal: 10,
+          backgroundColor: choosed === idx ? COLORS.primary : COLORS.gray,
+        }
+      }>
+      <Text style={{color: COLORS.white, fontSize: SIZES.font}}>{children}</Text>
+    </TouchableOpacity>
+  );
+};

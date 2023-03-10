@@ -1,5 +1,4 @@
 import {
-  FlatList,
   Image,
   StyleSheet,
   Text,
@@ -14,16 +13,18 @@ import CinemaCard from './CinemaCard';
 
 const ChooseCinema = () => {
   const [openSearch, setOpenSearch] = useState(true);
-  const [cinemasData, setCinemasData] = useState(ceinmas)
+  const [cinemasData, setCinemasData] = useState(ceinmas);
 
-  const handleSearch = (text) => {
-    const filterdData = ceinmas.filter(item => item.name.toLocaleLowerCase().includes(text.toLocaleLowerCase()))
+  const handleSearch = text => {
+    const filterdData = ceinmas.filter(item => {
+      item.name.toLocaleLowerCase().includes(text.toLocaleLowerCase());
+    });
 
-    setCinemasData(filterdData)
-  }
+    setCinemasData(filterdData);
+  };
 
   return (
-    <View style={{flex:1}}>
+    <View style={{flex: 1}}>
       <View style={styles.headerContainer}>
         <View style={{flex: 1}}>
           {openSearch ? (
@@ -54,14 +55,9 @@ const ChooseCinema = () => {
         </View>
       </View>
 
-      <FlatList
-        data={cinemasData}
-        keyExtractor={item => item.id}
-        showsVerticalScrollIndicator={false}
-        renderItem={({item}) => (
-          <CinemaCard item={item} />
-        )}
-      />
+      {cinemasData.map(item => (
+        <CinemaCard key={item.id} item={item} />
+      ))}
     </View>
   );
 };
