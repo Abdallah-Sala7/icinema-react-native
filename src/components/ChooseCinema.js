@@ -12,7 +12,7 @@ import {ceinmas, COLORS, SIZES} from '../constants';
 import CinemaCard from './CinemaCard';
 
 const ChooseCinema = () => {
-  const [openSearch, setOpenSearch] = useState(true);
+  const [openSearch, setOpenSearch] = useState(false);
   const [cinemasData, setCinemasData] = useState(ceinmas);
 
   const handleSearch = text => {

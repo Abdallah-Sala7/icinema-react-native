@@ -1,10 +1,14 @@
 import movieLightReg from './images/movie_light.png'
 import movieNightGrd from './images/movie_night.png'
 
+import payment from './images/payment.png'
+
+
 import cinema1 from './images/cinema/cinema1.png'
 import cinema2 from './images/cinema/cinema2.png'
 import cinema3 from './images/cinema/cinema3.png'
 import cinema4 from './images/cinema/cinema4.png'
+
 
 import hole1 from './images/hole1.png'
 import hole2 from './images/hole2.png'
@@ -17,6 +21,12 @@ import Rectangle2 from './images/cinema/Rectangle-2.png'
 import Rectangle3 from './images/cinema/Rectangle-3.png'
 
 import abdallah from './images/abdallah.jpg'
+
+import credit from './images/credit.png'
+import fawry from './images/fawry.png'
+import Ewallet from './images/e-wallet.png'
+import ICwallet from './images/i-wallet.png'
+
 
 
 // import icons 
@@ -72,4 +82,9 @@ export default {
   hole1,
   hole2,
   hole3,
+  credit,
+  fawry,
+  Ewallet,
+  ICwallet,
+  payment
 }

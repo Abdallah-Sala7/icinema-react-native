@@ -9,6 +9,8 @@ import ChooseTime from './ChooseTime';
 import ChoosePayment from './ChoosePayment';
 import CinemaCard from './CinemaCard';
 import HoleChairs from './HoleChairs';
+import PaymentCard from './PaymentCard';
+import PaymentDone from './PaymentDone';
 
 
 import {RectButton, InterestBtn, DetailsBtn, ChooseBtn} from './Butons';
@@ -28,5 +30,7 @@ export {
   ChoosePayment,
   CinemaCard,
   ChooseBtn,
-  HoleChairs
+  HoleChairs,
+  PaymentCard,
+  PaymentDone
 };

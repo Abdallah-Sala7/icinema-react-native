@@ -1,14 +1,26 @@
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {ButContainer, COLORS, CONTAINER, TextStyle} from '../constants';
+import {COLORS, CONTAINER, TextStyle} from '../constants';
 import {DetailsBtn, Header, RectButton} from '../components';
 import assets from '../assets/assets';
 import Video from 'react-native-video';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setMovie } from '../app/reducers/chooseSlice';
 
-const CinemaDetail = () => {
+const MovieDetail = () => {
   const {params} = useRoute();
   const {item} = params;
   const {navigate} = useNavigation();
+  const dispatch = useDispatch();
+
+  const [playing, setPlaying] = useState(false);
+
+  const handleNavigate = () => {
+    navigate('BookScreen');
+    dispatch(setMovie(item));
+    setPlaying(true);
+  };
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -89,8 +101,7 @@ const CinemaDetail = () => {
               onBuffer={this.onBuffer}
               onError={this.videoError}
               style={styles.backgroundVideo}
-              controls={true}
-              autoPlay={false}
+              paused={playing}
             />
           </View>
 
@@ -117,7 +128,7 @@ const CinemaDetail = () => {
           <RectButton
             BGcolor={COLORS.primary}
             color={COLORS.white}
-            handlePress={() => navigate('BookScreen')}>
+            handlePress={handleNavigate}>
             Book Now
           </RectButton>
         </View>
@@ -126,7 +137,7 @@ const CinemaDetail = () => {
   );
 };
 
-export default CinemaDetail;
+export default MovieDetail;
 
 const styles = StyleSheet.create({
   movireCard: {

@@ -18,14 +18,14 @@ const ChooseTime = () => {
 
   const [selecteHole, setSelecteHole] = useState(0);
 
-  const {cinema} = useSelector(state => state.choose);
+  const {cinema, chair} = useSelector(state => state.choose);
 
   const handleChooseDay = day => {
     setChooseDay(day);
   };
 
-  const handleChooseTime = day => {
-    setChooseTime(day);
+  const handleChooseTime = time => {
+    setChooseTime(time);
   };
 
   return (
@@ -72,6 +72,8 @@ const ChooseTime = () => {
                   height: 144,
                   marginRight: 10,
                   borderRadius: SIZES.radius,
+                  borderColor: COLORS.primary,
+                  borderWidth: selecteHole === index ? 1 : 0,
                 }}
               />
             </TouchableOpacity>
@@ -121,33 +123,48 @@ const ChooseTime = () => {
           flexDirection: 'row',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
-          flex:1,
-          rowGap:10
-        }}
-      >
-        <View style={{width:"50%", flexDirection: 'row'}}>
-          <View style={[styles.mapItem,{backgroundColor:'#D4D4D4'}]}></View>
+          flex: 1,
+          rowGap: 10,
+          marginBottom: 20,
+        }}>
+        <View style={{width: '50%', flexDirection: 'row'}}>
+          <View style={[styles.mapItem, {backgroundColor: '#D4D4D4'}]}></View>
 
           <Text>ordinary</Text>
         </View>
 
-        <View style={{width:"50%", flexDirection: 'row'}}>
-          <View style={[styles.mapItem,{backgroundColor:COLORS.white}]}></View>
+        <View style={{width: '50%', flexDirection: 'row'}}>
+          <View
+            style={[styles.mapItem, {backgroundColor: COLORS.white}]}></View>
 
           <Text>premium</Text>
         </View>
 
-        <View style={{width:"50%", flexDirection: 'row'}}>
-          <View style={[styles.mapItem,{backgroundColor:'#707070'}]}></View>
+        <View style={{width: '50%', flexDirection: 'row'}}>
+          <View style={[styles.mapItem, {backgroundColor: '#707070'}]}></View>
 
           <Text>booked</Text>
         </View>
 
-        <View style={{width:"50%", flexDirection: 'row'}}>
-          <View style={[styles.mapItem,{backgroundColor:COLORS.primary}]}></View>
+        <View style={{width: '50%', flexDirection: 'row'}}>
+          <View
+            style={[styles.mapItem, {backgroundColor: COLORS.primary}]}></View>
 
           <Text>your seat</Text>
         </View>
+      </View>
+
+      <View
+        style={{
+          padding: 10,
+          backgroundColor: COLORS.gray,
+          borderRadius: SIZES.radius,
+          marginBottom: 10,
+        }}>
+        <Text style={{color: COLORS.white}}>Your tickets :</Text>
+        <Text style={{color: COLORS.white}}>
+          {chair.length} ordinary seats , {chair.length * 30} EGP for ticket
+        </Text>
       </View>
     </View>
   );

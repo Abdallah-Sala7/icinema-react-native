@@ -39,6 +39,7 @@ const HomeScreen = () => {
             height={230}
             type={'movie'}
             icon={assets.bookmark}
+            movie
           />
         </View>
 
@@ -69,6 +70,7 @@ const HomeScreen = () => {
             height={230}
             type={'movie'}
             icon={assets.bookmark}
+            movie
           />
         </View>
       </View>

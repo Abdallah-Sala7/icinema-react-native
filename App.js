@@ -10,7 +10,7 @@ import {COLORS} from './src/constants';
 
 import {LoginNavigation, MainLayout} from './src/Navigation';
 
-import {BookScreen, CinemaDetail} from './src/screens';
+import {BookScreen, MovieDetail} from './src/screens';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -55,7 +55,7 @@ const App = () => {
             ) : (
               <>
                 <Stack.Screen name="main" component={MainLayout} />
-                <Stack.Screen name="details" component={CinemaDetail} />
+                <Stack.Screen name="MovieDetails" component={MovieDetail} />
                 <Stack.Screen name="BookScreen" component={BookScreen} />
 
               </>

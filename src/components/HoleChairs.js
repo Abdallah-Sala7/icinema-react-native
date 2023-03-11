@@ -1,10 +1,12 @@
 import {TouchableOpacity, View} from 'react-native';
 import {useState} from 'react';
-import {useSelector} from 'react-redux';
-import { COLORS } from '../constants';
+import {useDispatch, useSelector} from 'react-redux';
+import {COLORS} from '../constants';
+import {setChair} from '../app/reducers/chooseSlice';
 
 const HoleChairs = ({selecteHole}) => {
-  const [mychairTiket, setMyChairTiket] = useState([]);
+  const dispatch = useDispatch();
+
   const [bookedchair, setBookedChair] = useState([
     [1, 5],
     [1, 9],
@@ -15,7 +17,8 @@ const HoleChairs = ({selecteHole}) => {
     [3, 15],
     [3, 11],
   ]);
-  const {cinema} = useSelector(state => state.choose);
+
+  const {cinema, chair} = useSelector(state => state.choose);
 
   var column = [];
   var chairsInHole = [];
@@ -29,7 +32,7 @@ const HoleChairs = ({selecteHole}) => {
         return item[0] === i && item[1] === j;
       });
 
-      let chairChoosed = mychairTiket.filter(item => {
+      let chairChoosed = chair.filter(item => {
         return item[0] === i && item[1] === j;
       });
 
@@ -40,17 +43,17 @@ const HoleChairs = ({selecteHole}) => {
               activeOpacity={0.8}
               disabled={chairI.length > 0}
               onPress={() => handleChooseChaie([i, j])}
-              key={[i, j]}
+              key={i + ' ' + j}
               style={{
                 width: 16,
                 height: 16,
+                borderRadius: 4,
                 backgroundColor:
                   chairI.length > 0
                     ? '#707070'
                     : chairChoosed.length > 0
                     ? COLORS.primary
                     : '#D4D4D4',
-                borderRadius: 4,
               }}></TouchableOpacity>
           }
         </>,
@@ -75,15 +78,7 @@ const HoleChairs = ({selecteHole}) => {
   }
 
   const handleChooseChaie = ([i, j]) => {
-    const index = mychairTiket.findIndex(([a, b]) => a === i && b === j);
-
-    if (index >= 0) {
-      let newMyChairTiket = mychairTiket;
-      newMyChairTiket.splice(index, 1);
-      setMyChairTiket([...newMyChairTiket]);
-    } else {
-      setMyChairTiket([...mychairTiket, [i, j]]);
-    }
+    dispatch(setChair([i, j]));
   };
 
   return (

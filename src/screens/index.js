@@ -7,7 +7,7 @@ import Verification from "./Verification";
 import PaymentMethod from "./PaymentMethod";
 import TimeLine from "./TimeLine";
 import ShowingNow from "./ShowingNow";
-import CinemaDetail from "./CinemaDetail";
+import MovieDetail from "./MovieDetail";
 import BookScreen from "./BookScreen";
 
 
@@ -22,6 +22,6 @@ export {
   PaymentMethod,
   ShowingNow,
   TimeLine,
-  CinemaDetail,
+  MovieDetail,
   BookScreen
 }

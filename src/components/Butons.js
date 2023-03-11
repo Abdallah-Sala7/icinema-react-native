@@ -96,7 +96,7 @@ export const DetailsBtn = ({children}) => {
 export const ChooseBtn = ({children, choosed, idx, handlePress}) => {
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
+      activeOpacity={0.9}
       onPress={handlePress}
       style={
         {
